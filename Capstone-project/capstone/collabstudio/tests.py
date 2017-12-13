@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from .models import Tags,Profile,Post,Follow,Likes,Comments
+from .models import Profile
 
 class ProfileTestClass(TestCase):
 	'''
