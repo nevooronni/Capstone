@@ -3,4 +3,4 @@ from django.conf.urls import url
 from django.http import HttpResponse
 
 def welcome(request):
-	return HttpResponse('welcome to the Moringa Tribune')
+	return render(request,'welcome.html')
