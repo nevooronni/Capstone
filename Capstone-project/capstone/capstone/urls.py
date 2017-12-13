@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'',include('collabstudio.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
-    url(r'^logout/$', views.logout, {"next_page": '/accounts/register/'}), 
+    url(r'^logout/$', views.logout, {"next_page": 'index'}), 
 ]
