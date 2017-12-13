@@ -1,6 +1,11 @@
 from django.db import models
 from django.db.models.signals import post_save
+from django.contrib.auth.models import User
 from django.dispatch import receiver
+from phonenumber_field.modelfields import PhoneNumberField
+import datetime as dt
+from django.db.models import Sum
+
 
 Gender_Choices = (
 		('Female', 'female'),
@@ -18,7 +23,7 @@ class Profile(models.Model):
 	email = models.EmailField()
 	phone_number = PhoneNumberField(max_length=10, blank=True)
 	photo = models.ImageField(upload_to = 'profile/',blank=True,default=False)
-	gender = models.CharField(max_length=30,choices=Genders_Choices,default='None',blank=True)
+	gender = models.CharField(max_length=30,choices=Gender_Choices,default='None',blank=True)
 
 	@classmethod
 	def retrieve_profiles(cls):
@@ -50,4 +55,9 @@ class Profile(models.Model):
 	def photo_url(self):
 		if self.photo and hasattr(self.photo, 'url'):
 			return self.photo.url	
+
+
+class NewsLetterRecipients(models.Model):
+    name = models.CharField(max_length = 30)
+    email = models.EmailField()
 

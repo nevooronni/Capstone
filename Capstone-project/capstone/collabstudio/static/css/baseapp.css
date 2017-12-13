@@ -2,6 +2,9 @@
   background-color: black;
 }
 
-#red {
-  color: red;
+#join {
+  /*position: absolute;
+  top: 0px;
+  right: 40px;*/
+  margin-right: 20%;
 }

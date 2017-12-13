@@ -12,9 +12,25 @@
       <a class="navbar-brand" href="{% url 'index' %}" id="">COLLABSTUDIO</a>
       <a class="navbar-brand" href="{% url 'index' %}" id="">STUDIO</a>
       <a class="navbar-brand" href="{% url 'index' %}" id="">EXPLORE</a>
-        <a class="navbar-brand" href="{% url 'index' %}" id="">HELP</a>
-      <a class="navbar-brand" href="">JOIN</a>
-       <a class="navbar-brand" href=""><button class="btn" id="">LOG IN</button></a>
+      <a class="navbar-brand" href="{% url 'index' %}" id="">HELP</a>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="navbar-brand" href="accounts/register"><button class="btn" id="join">JOIN</button></li>
+      {% if user.is_authenticated %}
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="">Home</a>
+        </li>
+        <li>
+          <a href="/accounts/password/change">Change Password</a>
+        </li>
+        <li>
+          <a href="/logout"><button class="btn" id="logout">LOGOUT</button></a>
+        </li>
+       </ul>
+      {% else %} 
+       <li><a class="navbar-brand" href="/accounts/login"><button class="btn" id="login">LOGIN</button></a></li>
+      {% endif %}
+      </ul>
     </div>
   </div>
 </nav>
